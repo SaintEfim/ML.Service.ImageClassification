@@ -21,32 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\net9.0\TrainedModels\imageClassifier.zip" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\checkpoint" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\custom_retrained_model_based_on_resnet_v2_50_299.meta.data-00000-of-00001" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\custom_retrained_model_based_on_resnet_v2_50_299.meta.index" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\custom_retrained_model_based_on_resnet_v2_50_299.meta.meta" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\custom_retrained_model_based_on_resnet_v2_50_299.meta.pb" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\trainSetBottleneckFile.csv" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\trainSetBottleneckFile.csv_features.bin" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\trainSetBottleneckFile.csv_labels.bin" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv_features.bin" />
-    <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv_labels.bin" />
-    <Content Update="appsettings.json">
+    <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="appsettings.Development.json">
+    </None>
+    <None Update="appsettings.Development.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Dataset\**\*">
+    </None>
+    <None Include="..\..\Dataset\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>Dataset\%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\Debug\net9.0\TrainedModels\workspace\train\" />
+    </None>
   </ItemGroup>
 
 </Project>
