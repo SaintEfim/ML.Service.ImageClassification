@@ -33,12 +33,12 @@
     <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv" />
     <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv_features.bin" />
     <Content Include="bin\Debug\net9.0\TrainedModels\workspace\validationSetBottleneckFile.csv_labels.bin" />
-    <None Update="appsettings.json">
+    <Content Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="appsettings.Development.json">
+    </Content>
+    <Content Update="appsettings.Development.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="..\..\Dataset\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>Dataset\%(RecursiveDir)%(Filename)%(Extension)</Link>
