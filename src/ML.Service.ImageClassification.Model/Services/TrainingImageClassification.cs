@@ -10,11 +10,8 @@ internal sealed class TrainingImageClassification
     private readonly MLContext _mlContext;
     private readonly ILogger<TrainingImageClassification> _logger;
 
-    private const string DatasetFolder =
-        @"..\Dataset";
-
-    private const string ModelFolder =
-        @"\TrainedModels";
+    private const string DatasetFolder = "Dataset";
+    private const string ModelFolder = "TrainedModels";
 
     public TrainingImageClassification(
         MLContext mlContext,
@@ -59,7 +56,15 @@ internal sealed class TrainingImageClassification
 
     private IDataView LoadImages()
     {
-        var files = Directory.GetFiles(DatasetFolder, "*", SearchOption.AllDirectories)
+        // Получаем абсолютный путь к папке Dataset
+        var datasetFullPath = Path.GetFullPath(DatasetFolder);
+
+        if (!Directory.Exists(datasetFullPath))
+        {
+            throw new DirectoryNotFoundException($"Dataset folder not found: {datasetFullPath}");
+        }
+
+        var files = Directory.GetFiles(datasetFullPath, "*", SearchOption.AllDirectories)
             .Where(f =>
             {
                 var ext = Path.GetExtension(f)
@@ -68,15 +73,18 @@ internal sealed class TrainingImageClassification
             })
             .Select(path => new ImageData
             {
-                ImagePath = path,
-                Label = Directory.GetParent(path)!.Name
+                // Сохраняем относительный путь от папки Dataset
+                ImagePath = Path.GetRelativePath(datasetFullPath, path),
+                Label = Path.GetRelativePath(datasetFullPath, Path.GetDirectoryName(path)!)
             })
             .ToList();
 
         if (files.Count == 0)
         {
-            throw new Exception("No images found in dataset folder");
+            throw new Exception($"No images found in dataset folder: {datasetFullPath}");
         }
+
+        _logger.LogInformation("Found {Count} images in dataset", files.Count);
 
         // Перемешаем для равномерного распределения
         var rnd = new Random(123);
@@ -124,7 +132,8 @@ internal sealed class TrainingImageClassification
         return _mlContext.Transforms
             .Conversion
             .MapValueToKey("LabelAsKey", nameof(ImageData.Label))
-            .Append(_mlContext.Transforms.LoadRawImageBytes("Image", DatasetFolder, nameof(ImageData.ImagePath)));
+            .Append(_mlContext.Transforms.LoadRawImageBytes("Image", DatasetFolder, // Базовая папка для изображений
+                nameof(ImageData.ImagePath)));
     }
 
     private static ProcessedData PreprocessData(
@@ -154,7 +163,7 @@ internal sealed class TrainingImageClassification
             TestOnTrainSet = false,
             ReuseTrainSetBottleneckCachedValues = true,
             ReuseValidationSetBottleneckCachedValues = true,
-            MetricsCallback = m => { _logger.LogInformation("Epoch metrics: {Metrics}", m.ToString()); }
+            MetricsCallback = m => _logger.LogInformation("Epoch metrics: {Metrics}", m.ToString())
         };
 
         return _mlContext.MulticlassClassification
