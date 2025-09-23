@@ -33,4 +33,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ML.Service.ImageClassification.Model.Abstractions\ML.Service.ImageClassification.Model.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>
