@@ -4,7 +4,5 @@ public class MinioModel
 {
     public required string Name { get; set; }
 
-    public string? Uri { get; set; }
-
-    public Stream? File;
+    public required Stream File;
 }
