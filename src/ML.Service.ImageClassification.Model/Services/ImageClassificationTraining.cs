@@ -66,14 +66,19 @@ internal sealed class ImageClassificationTraining
         var datasetFullPath = Path.GetFullPath(DatasetFolder);
 
         if (!Directory.Exists(datasetFullPath))
+        {
             throw new DirectoryNotFoundException($"Dataset folder not found: {datasetFullPath}");
+        }
 
         var imageFiles = Directory.GetFiles(datasetFullPath, "*", SearchOption.AllDirectories)
             .Where(f => Path.GetExtension(f)
                 .ToLowerInvariant() is ".jpg" or ".jpeg" or ".png" or ".bmp")
             .ToList();
 
-        if (imageFiles.Count == 0) throw new Exception($"No images found in dataset folder: {datasetFullPath}");
+        if (imageFiles.Count == 0)
+        {
+            throw new Exception($"No images found in dataset folder: {datasetFullPath}");
+        }
 
         _logger.LogInformation("Found {Count} images in dataset", imageFiles.Count);
 
