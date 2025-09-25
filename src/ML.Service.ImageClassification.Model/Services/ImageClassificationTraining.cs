@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.Extensions.Logging;
 using Microsoft.ML;
 using Microsoft.ML.Vision;
+using ML.Service.ImageClassification.Minio.Models;
 using ML.Service.ImageClassification.Model.Models;
 
 namespace ML.Service.ImageClassification.Model.Services;
@@ -149,9 +151,17 @@ internal sealed class ImageClassificationTraining
         ITransformer model,
         IDataView dataView)
     {
-        Directory.CreateDirectory(ModelFolder);
-        var modelPath = Path.Combine(ModelFolder, "imageClassifier.zip");
-        _mlContext.Model.Save(model, dataView.Schema, modelPath);
-        _logger.LogInformation("Model saved to: {ModelPath}", modelPath);
+        using var memoryStream = new MemoryStream();
+        _mlContext.Model.Save(model, dataView.Schema, memoryStream);
+
+        // Сбрасываем позицию потока на начало для чтения
+        memoryStream.Position = 0;
+
+        // Создаем MinioModel
+        var minioModel = new MinioModel
+        {
+            Name = "imageClassifier",
+            File = memoryStream
+        };
     }
 }
