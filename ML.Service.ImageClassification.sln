@@ -9,6 +9,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Model", "src\ML.Service.ImageClassification.Model\ML.Service.ImageClassification.Model.csproj", "{96BE901B-16CB-46A6-BDDA-67CEF2058602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Model.Abstractions", "src\ML.Service.ImageClassification.Model.Abstractions\ML.Service.ImageClassification.Model.Abstractions.csproj", "{D1E4ED85-78CB-4AF3-9CE2-26588DA932E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Domain", "src\ML.Service.ImageClassification.Domain\ML.Service.ImageClassification.Domain.csproj", "{125D82E6-648B-46DF-836F-6AF0E003E5DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Domain.Abstractions", "src\ML.Service.ImageClassification.Domain.Abstractions\ML.Service.ImageClassification.Domain.Abstractions.csproj", "{E61402DD-D6C0-4332-A7D8-D4E381394F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.API", "src\ML.Service.ImageClassification.API\ML.Service.ImageClassification.API.csproj", "{09217175-604A-42A0-BAD8-2EE55BB2291A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Minio", "src\ML.Service.ImageClassification.Minio\ML.Service.ImageClassification.Minio.csproj", "{8B67E53B-4079-4C36-A908-0C67FC613A8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Service.ImageClassification.Minio.Abstractions", "src\ML.Service.ImageClassification.Minio.Abstractions\ML.Service.ImageClassification.Minio.Abstractions.csproj", "{1F2F8554-9FEB-48D1-9673-ADA3931D9B9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +31,29 @@ Global
 		{96BE901B-16CB-46A6-BDDA-67CEF2058602}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BE901B-16CB-46A6-BDDA-67CEF2058602}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BE901B-16CB-46A6-BDDA-67CEF2058602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E4ED85-78CB-4AF3-9CE2-26588DA932E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E4ED85-78CB-4AF3-9CE2-26588DA932E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E4ED85-78CB-4AF3-9CE2-26588DA932E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E4ED85-78CB-4AF3-9CE2-26588DA932E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{125D82E6-648B-46DF-836F-6AF0E003E5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125D82E6-648B-46DF-836F-6AF0E003E5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125D82E6-648B-46DF-836F-6AF0E003E5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125D82E6-648B-46DF-836F-6AF0E003E5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61402DD-D6C0-4332-A7D8-D4E381394F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61402DD-D6C0-4332-A7D8-D4E381394F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61402DD-D6C0-4332-A7D8-D4E381394F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61402DD-D6C0-4332-A7D8-D4E381394F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09217175-604A-42A0-BAD8-2EE55BB2291A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09217175-604A-42A0-BAD8-2EE55BB2291A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09217175-604A-42A0-BAD8-2EE55BB2291A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09217175-604A-42A0-BAD8-2EE55BB2291A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B67E53B-4079-4C36-A908-0C67FC613A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B67E53B-4079-4C36-A908-0C67FC613A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B67E53B-4079-4C36-A908-0C67FC613A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B67E53B-4079-4C36-A908-0C67FC613A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F2F8554-9FEB-48D1-9673-ADA3931D9B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F2F8554-9FEB-48D1-9673-ADA3931D9B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F2F8554-9FEB-48D1-9673-ADA3931D9B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F2F8554-9FEB-48D1-9673-ADA3931D9B9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

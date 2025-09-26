@@ -28,7 +28,9 @@ internal abstract class Program
 
         builder.RegisterType<MLContext>()
             .AsSelf();
-        builder.RegisterType<TrainingImageClassification>();
+        builder.RegisterType<ImageClassificationTraining>();
+        builder.RegisterType<ImageClassificationPrediction>()
+            .As<IImageClassificationPrediction>();
         builder.RegisterInstance(loggerFactory)
             .As<ILoggerFactory>()
             .SingleInstance();
@@ -37,7 +39,7 @@ internal abstract class Program
             .SingleInstance();
 
         var container = builder.Build();
-        container.Resolve<TrainingImageClassification>()
+        container.Resolve<ImageClassificationTraining>()
             .TrainModel();
     }
 }
