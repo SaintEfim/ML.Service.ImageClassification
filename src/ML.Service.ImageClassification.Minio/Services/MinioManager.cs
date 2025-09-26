@@ -1,4 +1,4 @@
-﻿namespace ML.Service.ImageClassification.Model.Minio.Services;
+﻿namespace ML.Service.ImageClassification.Minio.Services;
 
 public class MinioManager
 {

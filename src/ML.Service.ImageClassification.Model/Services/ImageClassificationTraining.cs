@@ -161,7 +161,9 @@ internal sealed class ImageClassificationTraining
         var minioModel = new MinioModel
         {
             Name = "imageClassifier",
-            File = memoryStream
+            File = memoryStream,
+            StoredName = "imageClassifier",
+            MinioType = "application/zip"
         };
     }
 }
